@@ -9,7 +9,7 @@ const Header = () => {
 			<ul>
 				<li>projets</li>
 				<li>contact</li>
-                <NavLink to={"/login"}><li>login</li></NavLink>
+                <NavLink to={"/admin"}><li>login</li></NavLink>
 				<li><img src="/icons/instagram.png" alt="Instagram"/></li>
 			</ul>
 		</nav>

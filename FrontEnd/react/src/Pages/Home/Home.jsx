@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 
+
 import './Home.css'
 const Home = () => {
 
@@ -9,6 +10,7 @@ const Home = () => {
     const [filters, setFilters] = useState([]);
     const [loading, setLoading] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState();
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
         // Recuperer les catégories et les travaux
         useEffect(() => {
@@ -88,6 +90,7 @@ const Home = () => {
 		</section>
 		<section id="portfolio">
 			<h2>Mes Projets</h2>
+            <button onClick={() => setIsModalOpen(true)}>Editer</button>
             <div className='buttons'>
             <button className={!selectedCategory ? 'active' : ''} onClick={() => setSelectedCategory()}>Tous</button>
             {categories.map(category => (
@@ -102,6 +105,7 @@ const Home = () => {
                     </figure>
                 ))}
 			</div>
+
 		</section>
 		<section id="contact">
 			<h2>Contact</h2>
