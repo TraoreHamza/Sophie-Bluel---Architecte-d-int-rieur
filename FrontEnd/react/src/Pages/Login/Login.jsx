@@ -10,7 +10,7 @@ const Login = () => {
             const Navigate = useNavigate();
 
         const fetchLogin = async (e) => {
-                e.preventDefault(); 
+                e.preventDefault();
 
         try {
             const response = await fetch('http://localhost:5678/api/users/login', {
@@ -21,7 +21,7 @@ const Login = () => {
             if (!response.ok) {
                 throw new Error('Email ou le mot de passe incorrects');
             }
-            const data = await response.json();
+             
             const token = data.token;
             
             localStorage.setItem('token', token);

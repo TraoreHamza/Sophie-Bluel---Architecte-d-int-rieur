@@ -17,6 +17,7 @@ const Admin = () => {
         useEffect(() => {
             fetchCategories();
             fetchWorks();
+            Delete();
         }, []);
     
         useEffect(() => {
@@ -42,6 +43,20 @@ const Admin = () => {
         console.error(error);
         }
     };
+
+    const Delete = async (id) => {
+        try {
+            const response = await fetch(`http://localhost:5678/api/works/${id}`, {
+                method: 'DELETE',
+                headers: { "Authorization": "Bearer token" },
+            });
+            if (!response.ok) {
+                throw new Error('');
+            }
+        } catch (err) {
+                console.log(err.message);
+            }
+        };
 
     const fetchWorks = async () => {
         try {
@@ -98,7 +113,7 @@ const Admin = () => {
                 ))}
 			</div>
         {isModalOpen && (
-       < Works gallery={works}/>
+       < Works gallery={works} deleteImage={Delete}/>
         )}
         </section>
 		<section id="contact">
